@@ -1,24 +1,22 @@
-#include <stdlib.h>
+/*
+ * File: 5-print_numbers.c
+ * Auth: Brennan D Baraban
+ */
+
 #include <stdio.h>
-#include <time.h>
 
 /**
- * main - Prints base 10 numbers
- * @void: Empty parameter list for main.
+ * main - Prints all single digit numbers of base 10 starting from 0.
  *
- * Description: Prints numbers 0-9
- *
- * Return: 0 for success
 */
 int main(void)
 {
-	int num = 0;
+	int num;
 
-	while (num <= 9)
-	{
-		putchar(num);
-		num++;
-	}
-	putchar('\n');
+	for (num = 0; num < 10; num++)
+		putchar((num % 10) + '0');
+
+	putchar("\n");
+
 	return (0);
 }
