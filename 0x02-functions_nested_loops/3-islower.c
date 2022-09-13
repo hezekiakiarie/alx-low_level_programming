@@ -1,5 +1,6 @@
 /*
  * File: 3-islower.c
+ * Auth: mwashh
  */
 
 #include "main.h"
