@@ -6,12 +6,9 @@
  * @b: second integer.
  * Return: no return.
  */
-
-void awap_int(int *a, int *b)
+void swap_int(int *a, int *b)
 {
-
-	int temp = *a;
+	int c = *a;
 	*a = *b;
-	*b = temp;
-
+	*b = c;
 }
