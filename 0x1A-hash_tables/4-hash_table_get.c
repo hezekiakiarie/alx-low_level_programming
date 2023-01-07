@@ -1,32 +1,28 @@
 
 /**
- * hash_table_get - retrieves a value associated with a key
+ * hash_table_get - returns that value of the key
+ * @ht: hash table to search in.
+ * @key: key to find
  *
- * @ht: pointer to the hash table
- * @key: key of the hash
- * Return: value of the hash.
+ * Return: Value at the key location
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int k_index;
-	hash_node_t *tmp;
+	unsigned long int idx;
+	hash_node_t *node;
 
-	if (ht == NULL)
+	if (!ht || !key)
 		return (NULL);
+	idx = key_index((unsigned char *)key, ht->size);
+	node = ht->array[idx];
 
-	if (key == NULL || *key == '\0')
-		return (NULL);
-
-	k_index = key_index((unsigned char *)key, ht->size);
-
-	tmp = ht->array[k_index];
-
-	while (tmp != NULL)
+	while (node)
 	{
-		if (strcmp(tmp->key, key) == 0)
-			return (tmp->value);
-		tmp = tmp->next;
+		if (!strcmp(key, node->key))
+			return (node->value);
+		node = node->next;
 	}
 
 	return (NULL);
 }
+
